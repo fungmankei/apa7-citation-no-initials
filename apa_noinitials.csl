@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style xmlns="http://purl.org/net/xbiblio/csl" version="1.0" class="in-text" default-locale="en-US" initialize-with=". " page-range-format="expanded">
+  <info>
+    <title>APA 7th edition (no initials in in-text citations)</title>
+    <id>https://github.com/fungmankei/apa7-citation-no-initials/blob/main/apa_noinitials.csl</id>
+    <link href="https://github.com/fungmankei/apa7-citation-no-initials/blob/main/apa_noinitials.csl" rel="self"/>
+    <link href="http://www.zotero.org/styles/apa" rel="template"/>
+    <category citation-format="author-date"/>
+    <summary>APA 7 author-date citations and references. In-text citations omit given-name initials; bibliography entries retain initials.</summary>
+    <updated>2026-11-10T00:00:00+00:00</updated>
+    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">Adapted from APA Style 7th edition CSL. This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License.</rights>
+  </info>
+  <macro name="author">
+    <names variable="author">
+      <name name-as-sort-order="all" sort-separator=", " initialize-with=". " delimiter=", " delimiter-precedes-last="always" and="text"/>
+      <et-al font-style="italic"/>
+      <substitute><names variable="editor"/><text variable="title"/></substitute>
+    </names>
+  </macro>
+  <macro name="author-short">
+    <names variable="author">
+      <name form="short" and="text" delimiter=", "/>
+      <et-al font-style="italic"/>
+      <substitute><names variable="editor"><name form="short"/></names><text variable="title"/></substitute>
+    </names>
+  </macro>
+  <macro name="issued">
+    <choose>
+      <if variable="issued"><date variable="issued"><date-part name="year"/></date></if>
+      <else><text term="no date" form="short"/></else>
+    </choose>
+  </macro>
+  <macro name="title">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper paper-conference" match="any"><text variable="title"/></if>
+      <else><text variable="title" font-style="italic"/></else>
+    </choose>
+  </macro>
+  <macro name="container">
+    <choose>
+      <if type="article-journal article-magazine article-newspaper" match="any">
+        <group delimiter=", ">
+          <text variable="container-title" font-style="italic"/>
+          <group><text variable="volume" font-style="italic"/><text variable="issue" prefix="(" suffix=")"/></group>
+          <text variable="page"/>
+        </group>
+      </if>
+      <else-if type="chapter paper-conference" match="any">
+        <group delimiter=", ">
+          <text term="in"/>
+          <names variable="editor"><name name-as-sort-order="all" initialize-with=". "/><label form="short" prefix=" (" suffix=")"/></names>
+          <text variable="container-title" font-style="italic"/>
+          <text variable="page" prefix="pp. "/>
+        </group>
+      </else-if>
+    </choose>
+  </macro>
+  <citation et-al-min="3" et-al-use-first="1" disambiguate-add-year-suffix="true" collapse="year">
+    <sort><key macro="author-short"/><key macro="issued"/></sort>
+    <layout prefix="(" suffix=")" delimiter="; "><group delimiter=", "><text macro="author-short"/><text macro="issued"/><group><label variable="locator" form="short"/><text variable="locator" prefix=" "/></group></group></layout>
+  </citation>
+  <bibliography hanging-indent="true" entry-spacing="0" line-spacing="2" et-al-min="21" et-al-use-first="19" et-al-use-last="true">
+    <sort><key macro="author"/><key macro="issued"/><key variable="title"/></sort>
+    <layout>
+      <group delimiter=". ">
+        <text macro="author"/>
+        <group prefix="(" suffix=")"><text macro="issued"/></group>
+        <text macro="title"/>
+        <text macro="container"/>
+        <choose>
+          <if variable="publisher"><text variable="publisher"/></if>
+        </choose>
+      </group>
+      <choose><if variable="DOI"><text variable="DOI" prefix=" https://doi.org/"/></if><else-if variable="URL"><text variable="URL" prefix=" "/></else-if></choose>
+    </layout>
+  </bibliography>
+</style>
