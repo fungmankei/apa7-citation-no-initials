@@ -4,15 +4,13 @@ This repository provides an adapted citation style based on the 7th edition of t
 
 ## What is different?
 
-The style follows the standard rules of APA 7th edition with one deliberate adaptation: authors' initials are not used in in-text citations to distinguish authors with the same surname. In-text citations are therefore based on the author surname and year, without initials.
+The style follows the standard rules of APA 7th edition with one deliberate adaptation: authors' initials are not used in in-text citations to distinguish authors with the same surname. In-text citations are based on the author surname and year, without given-name initials. The reference list continues to show authors' given-name initials, as in APA 7th edition.
 
 All other citation, formatting, and reference-list rules are intended to remain consistent with APA 7th edition.
 
 ## Install the CSL style
 
-This repository includes a CSL file for use in reference managers that support CSL-based styles. You can install it by downloading the `.csl` file and importing it into your reference manager, or by using the file's **Raw** URL if your reference manager supports installing a style from a URL.
-
-To use the Raw URL, open the CSL file on GitHub, select **Raw**, and copy the resulting URL. Then follow your reference manager's instructions for installing a CSL style from a URL.
+Install the style from the [`apa_noinitials.csl` file](apa_noinitials.csl), or use its [Raw CSL URL](https://raw.githubusercontent.com/fungmankei/apa7-citation-no-initials/main/apa_noinitials.csl) in a reference manager that supports installing a CSL style from a URL. You can also download the `.csl` file and import it into your reference manager.
 
 ## Notes
 
